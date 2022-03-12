@@ -1,0 +1,29 @@
+version: '3'
+services:
+  verifone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: verifone
+    ports:
+      - '8080:8080'
+      - '9229:9229'
+    depends_on:
+      - mongo
+    env_file:
+      - ./.env
+    volumes:
+      - ./src:/verifone/src
+      - ./static:/verifone/static
+      - ./test:/verifone/test
+      - ./tsconfig.json:/verifone/tsconfig.json
+      - ./tsconfig.build.json:/verifone/tsconfig.build.json
+      - ./nest-cli.json:/verifone/nest-cli.json
+      - ./dist:/verifone/dist
+    restart: always
+  mongo:
+    image: mongo:4.2.1
+    hostname: mongo
+    restart: always
+    ports:
+      - '27017:27017'
