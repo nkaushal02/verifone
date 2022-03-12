@@ -3,11 +3,10 @@ import { get as _get } from "lodash";
 
 export class CustomResponse {
   static serialize(statusCode: number, message: string, responseData): CustomResponse {
-    const results = _get(responseData, "results");
     return new CustomResponse({
       statusCode,
       message,
-      results: results ? results : []
+      results: responseData ? responseData : []
     });
   }
 
@@ -41,12 +40,6 @@ export class CustomResponse {
     default: [],
     required: false
   })
-  results: IResults[];
-}
-
-export interface IResults {
-  key: string;
-  key2: string;
-  key3: String;
+  results: any;
 }
 

@@ -8,6 +8,7 @@ import { ApiDoc } from "./docs/doc";
 async function bootstrap() {
   const context = "main.ts";
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.useGlobalPipes(new ValidationPipe({whitelist: true,transform:true}));  
   // The test endpoint for documentation is exposed only on dev env. This is controlled by GSC.
   // !!! These CSP relaxations are only for endpoints exposing documentation. !!!
   // !!! They must never be applied to any other endpoint !!!
@@ -42,8 +43,7 @@ async function bootstrap() {
     })
   );
   await ApiDoc(app);
-  app.useGlobalPipes(new ValidationPipe({whitelist: true,transform:true}));  
-  await app.listen(8080);
+  await app.listen(process.env.PORT);
 }
 
 bootstrap();

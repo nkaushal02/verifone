@@ -14,12 +14,8 @@ export class ProductsService {
     }
 
     async createMany(products: any) {
-        if(!this.getProducts){
-            const createdProduct = this.productsModel.insertMany(products);
-            return createdProduct;
-        } else{
-            throw new HttpException('Product already exists', HttpStatus.BAD_REQUEST);
-        }
+        const createdProduct = this.productsModel.insertMany(products);
+        return createdProduct;
     }
 
     async getProducts(usersFilterQuery: FilterQuery<Products>): Promise<Products[]> {

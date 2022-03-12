@@ -26,4 +26,4 @@ services:
     hostname: mongo
     restart: always
     ports:
-      - '27017:27017'
+      - '27018:27018'

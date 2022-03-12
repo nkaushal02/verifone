@@ -39,9 +39,10 @@ export class AuthController {
             // Create security token 
             const payload = { email: user.email };
             const token = await this.authService.signPayload(payload);
-            return CustomResponse.serialize(200, 'SUCCESS', { user, token});
+            const details  = {user, token};
+            return CustomResponse.serialize(200, 'SUCCESS', details);
         } catch (e) {
-            return CustomResponse.serialize(401,'FAILED',[]);
+            return CustomResponse.serialize(401,'USER NOT FOUND',[]);
         }
     }
 }

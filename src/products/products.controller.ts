@@ -27,9 +27,7 @@ export class ProductsController {
         try {
             const result = await this.ProductsService.getProducts({});
             if (result && result.length > 0) {
-                return CustomResponse.serialize(200, "SUCCESS", {
-                    results: result
-                });
+                return CustomResponse.serialize(200, "SUCCESS", result);
             } else{
                 return CustomResponse.serialize(400,'NOT FOUND',[]);
             }
