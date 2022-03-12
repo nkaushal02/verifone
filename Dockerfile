@@ -5,13 +5,10 @@ RUN apk add g++ make python
 WORKDIR /verifone
 
 COPY package*.json ./
-
-COPY /src ./
-
 RUN npm install
 
-RUN npx nestjs-command create:user
+COPY tsconfig.json tsconfig.build.json nest-cli.json ./
 
-RUN npx nestjs-command create:products
+COPY src src
 
 CMD ["npm", "run", "start:debug"]
