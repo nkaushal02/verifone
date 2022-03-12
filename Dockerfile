@@ -5,6 +5,7 @@ RUN apk add g++ make python
 WORKDIR /verifone
 
 COPY package*.json ./
+
 RUN npm install
 
 COPY tsconfig.json tsconfig.build.json nest-cli.json ./

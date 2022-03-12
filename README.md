@@ -38,6 +38,12 @@ Copy and paste from
 ```bash
 # development
 $ docker-compose up
+
+# Run Migration 
+Open Another terminal and Execute 
+
+docker exec -it verifone npx nestjs-command create:user
+docker exec -it verifone npx nestjs-command create:products
 ```
 **Using Npm start**
 
@@ -45,6 +51,12 @@ $ docker-compose up
 ```bash
 # development
 $ npm run start
+
+# Run Migration 
+Open Another terminal and Execute 
+
+npx nestjs-command create:user
+npx nestjs-command create:products
 ```
 Application is served at
 
