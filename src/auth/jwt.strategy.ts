@@ -3,6 +3,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, VerifiedCallback } from 'passport-jwt';
 import { Strategy } from 'passport-jwt';
 import { AuthService } from './auth.service';
+import { CustomResponse } from "../libraries/custom-response.class";
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -17,7 +18,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const user = await this.authService.validateUser(payload);
     if (!user) {
       return done(
-        new HttpException('Unauthorized access', HttpStatus.UNAUTHORIZED),
+        //new HttpException('Unauthorized access', HttpStatus.UNAUTHORIZED),
+        CustomResponse.serialize(HttpStatus.UNAUTHORIZED,'Unauthorized access',[]),
         false,
       );
     }

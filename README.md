@@ -33,30 +33,6 @@ Copy and paste from
 .env.sample
 ```
 
-## How to run the app
-**Using Docker**
-```bash
-# development
-$ docker-compose up
-```
-**Using Npm start**
-
-`make sure mongodb is running locally and please update the .env with relevent mongodb config value`
-```bash
-# development
-$ npm run start
-```
-Application is served at
-
-```bash
-http://localhost:8080
-```
-
-API Doc is served at
-```bash
-http://localhost:8080/docs/v1
-```
-
 ## Test
 
 ```bash
