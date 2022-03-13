@@ -1,7 +1,7 @@
 import { Command } from 'nestjs-command';
 import { Injectable } from '@nestjs/common';
 
-import { UserService } from '../../user/user.service';
+import { UserService } from 'src/user/user.service';
 
 @Injectable()
 export class UserSeed {

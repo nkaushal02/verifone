@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import {FilterQuery, Model } from "mongoose";
-import { Products } from '../types/products';
+import { Products } from 'src/types/products';
 import { ProductsDTO } from './products.dto';
 
 @Injectable()

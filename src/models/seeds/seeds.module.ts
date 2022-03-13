@@ -3,8 +3,8 @@ import { CommandModule } from 'nestjs-command';
 
 import { UserSeed } from './user.seed';
 import { ProductsSeed } from './products.seed';
-import { UserModule } from '../../user/user.module';
-import { ProductsModule } from '../../products/products.module';
+import { UserModule } from 'src/user/user.module';
+import { ProductsModule } from 'src/products/products.module';
 
 @Module({
     imports: [CommandModule, UserModule, ProductsModule],
